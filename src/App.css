@@ -14,7 +14,7 @@ header {
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
 
-.header--logo-img {
+.navbar--logo-img {
   width: 82px;
 }
 
@@ -26,7 +26,8 @@ header {
 }
 
 .hero--img {
-  width: 396px;
+  width: 60vw;
+  max-width: 400px;
   margin-inline: auto;
   margin-bottom: 32px;
 }
@@ -40,4 +41,42 @@ header {
   font-size: 16px;
   max-width: 320px;
   font-weight: 300;
+}
+
+/* Card */
+.card {
+  width: 176px;
+  font-size: .75rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #222222;
+}
+
+.card--img {
+  width: 100%;
+  border-radius: 9px;
+}
+
+.card--first-line {
+  display: flex;
+  align-items: center;
+}
+
+.card > h2 {
+  font-size: .75rem;
+  font-weight: 300;
+}
+
+.card--star-icon {
+  width: 14px;
+  margin-right: 4px;
+}
+
+/* Utility */
+.grey {
+  color: #918E9B;
+}
+
+.bold {
+  font-weight: 600;
 }
