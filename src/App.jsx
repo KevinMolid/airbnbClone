@@ -3,6 +3,16 @@ import './App.css'
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import Card from "./components/Card"
+import cardData from "./data.jsx"
+
+const cards = cardData.map(data => {
+  return (
+    <Card 
+      key={data.id}
+      item={data}
+    />
+  )
+})
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,14 +20,9 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Card 
-        img="katie-zaferes.png"
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
+      <div className='card-wrapper'>
+        {cards}
+      </div>
     </>
   )
 }

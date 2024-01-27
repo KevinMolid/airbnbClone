@@ -1,27 +1,26 @@
 import React from "react"
-import starIcon from "/src/images/star.png"
-
-/*
-- img ("katie-zaferes.png")
-- rating ("5.0")
-- reviewCount (6)
-- country (Whatever you want)
-- title ("Life Lessons with Katie Zaferes")
-- price (136)
-*/
 
 function Card(props) {
+
+    let badgeText
+    if (props.item.openSpots === 0) {
+        badgeText = "SOLD OUT"
+    } else if (props.item.location === "Online") {
+        badgeText = "ONLINE"
+    }
+
     return (
         <article className="card">
-            <img className="card--img" src={`/src/images/${props.img}`} alt="Image of Katie Zaferes" />
+            {badgeText && <div className="card--badge">{badgeText}</div>}
+            <img className="card--img" src={`/images/${props.item.coverImg}`} alt="Image of Katie Zaferes" />
             <div className="card--first-line">
-                <img className="card--star-icon" src={starIcon} alt="Star icon" />
-                <span>{props.rating}</span>
-                <span className="grey">({props.reviewCount}) • </span>
-                <span className="grey">{props.country}</span>
+                <img className="card--star-icon" src="/images/star.png" alt="Star icon" />
+                <span>{props.item.stats.rating.toFixed(1)}</span>
+                <span className="grey margin-left">({props.item.stats.reviewCount}) • </span>
+                <span className="grey margin-left">{props.item.location}</span>
             </div>
-            <h2>{props.title}</h2>
-            <p><span className="bold">From ${props.price}</span> / person</p>
+            <h2>{props.item.title}</h2>
+            <p className="card--price"><span className="bold">From ${props.item.price}</span> / person</p>
         </article>
     )
 }
